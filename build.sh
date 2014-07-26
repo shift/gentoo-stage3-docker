@@ -1,5 +1,5 @@
 
-LATEST_VERSION=20140724/stage3-amd64-20140724.tar.bz2
+LATEST_VERSION=
 
 if [ -z "$LATEST_VERSION" ]; then
   LATEST_VERSION=$LATEST_VERSION`curl 'http://distfiles.gentoo.org/releases/amd64/autobuilds/latest-stage3-amd64.txt' | tail -n 1`
