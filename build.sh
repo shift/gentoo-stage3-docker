@@ -1,5 +1,5 @@
 
-LATEST_VERSION=$LATEST_VERSION
+LATEST_VERSION=20140724/stage3-amd64-20140724.tar.bz2
 
 if [ -z "$LATEST_VERSION" ]; then
   LATEST_VERSION=$LATEST_VERSION`curl 'http://distfiles.gentoo.org/releases/amd64/autobuilds/latest-stage3-amd64.txt' | tail -n 1`
@@ -9,7 +9,7 @@ fi
 #wget -c "http://distfiles.gentoo.org/releases/amd64/autobuilds/${LATEST_VERSION}"
 mkdir rootfs
 git tag $TAG
-sed -ri 's/LATEST_VERSION=$LATEST_VERSION/LATEST_VERSION=$LATEST_VERSION/' build.sh
+sed -ri "s/LATEST_VERSION=$LATEST_VERSION/LATEST_VERSION=$LATEST_VERSION/" build.sh
 git add build.sh
 git push origin --tags
 (cd rootfs && sudo tar xvjpf ../*.tar.bz2)
